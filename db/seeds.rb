@@ -11,22 +11,22 @@ more_owners.each do |owner|
     Owner.create!(owner)
 end
     
-more_buildings = [{:number => '1', :street_addr => '100 Street'}]
+more_buildings = [{:number => '1', :street_addr => '100 Street', :owner_id => 1}]
 more_buildings.each do |building|
     Building.create!(building)
 end
 
-more_apartments = [{:number => '1', :availability => true}, {:number => '2', :availability => false}]
+more_apartments = [{:number => '1', :availability => true, :building_id => 1}, {:number => '2', :availability => false, :building_id => 1}]
 more_apartments.each do |apartment|
     Apartment.create!(apartment)
 end
 
-more_rooms = [{:number => '1', :availability => true}, {:number => 'B', :availability => false}]
+more_rooms = [{:number => '1', :availability => true, :apartment_id => 1}, {:number => 'B', :availability => false, :apartment_id => 1}]
 more_rooms.each do |room|
     Room.create!(room)
 end
 
-more_renters = [{:fname => 'jane', :lname => 'doe'}]
+more_renters = [{:fname => 'jane', :lname => 'doe', :apartment_id => 1, :room_id => 1}]
 more_renters.each do |renter|
     Renter.create!(renter)
 end
@@ -41,7 +41,7 @@ more_requestStatuses.each do |requestStatus|
     RequestStatus.create!(requestStatus)
 end
 
-more_maintenanceRequests = [{:description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur nunc quis viverra fringilla. 
+more_maintenanceRequests = [{:renter_id => 1, :maintenance_type_id => 1, :request_status_id => 1 , :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur nunc quis viverra fringilla. 
     Nullam elementum felis leo, quis condimentum sem fringilla vel. Ut vulputate porta turpis et dapibus. Nunc sollicitudin nec nisl at tincidunt. 
     Cras et bibendum enim. Quisque a ligula nec nunc congue suscipit. Cras vel auctor orci. Integer dapibus ex est, sit amet dictum nibh hendrerit a. 
     Phasellus maximus, urna eu dignissim condimentum, magna dolor imperdiet dolor, vitae varius erat odio vel orci. 
@@ -56,7 +56,7 @@ more_creditCards.each do |creditCard|
     CreditCard.create!(creditCard)
 end
 
-more_users = [{:fname => 'jane', :lname => 'doe', :prev_addr => 'Previous Address', :curr_addr => 'Current Address', :username => 'user1', :password => 'password'}]
+more_users = [{:credit_card_id => 1 , :fname => 'jane', :lname => 'doe', :prev_addr => 'Previous Address', :curr_addr => 'Current Address', :email => '1234@email.com', :encrypted_password => '#$taawktljasktlw4aaglj', :password => 'password', reset_password_token: 'token', reset_password_sent_at: nil, remember_created_at: "2018-12-31 22:27:09", sign_in_count: 1, current_sign_in_at: "2018-12-31 22:27:09", last_sign_in_at: "2018-12-31 22:27:09", current_sign_in_ip: "0.0.0.0", last_sign_in_ip: "0.0.0.0"}]
 more_users.each do |user|
     User.create!(user)
 end
