@@ -56,7 +56,7 @@ end
 group :test do
   # Adds support for Cucumber and Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'rspec-expectations'
   gem 'selenium-webdriver'
