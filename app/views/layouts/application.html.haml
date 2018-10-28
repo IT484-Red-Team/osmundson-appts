@@ -5,6 +5,8 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    
+
 
   %body
     #main
@@ -13,5 +15,10 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
       = yield
+      
+      = render 'layouts/user_widget'
+
+      
+      
   
 
