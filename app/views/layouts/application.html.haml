@@ -5,6 +5,8 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    
+
 
   %body
     #main
@@ -17,4 +19,13 @@
         %li{:class => "nav-item"}=link_to "Apartments", root_path
         %li{:class => "nav-item"}=link_to "About Us", root_path
       = yield
+<<<<<<< HEAD
+=======
+      
+      = render 'layouts/user_widget'
+
+      
+      
+  
+>>>>>>> add_users
 
