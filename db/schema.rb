@@ -15,11 +15,15 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
   create_table "apartments", force: :cascade do |t|
     t.string "number"
     t.boolean "availability"
+    t.integer "building_id"
+    t.index ["building_id"], name: "index_apartments_on_building_id"
   end
 
   create_table "buildings", force: :cascade do |t|
     t.string "number"
     t.string "street_addr"
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_buildings_on_owner_id"
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -31,6 +35,12 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
 
   create_table "maintenance_requests", force: :cascade do |t|
     t.text "description"
+    t.integer "maintenance_type_id"
+    t.integer "renter_id"
+    t.integer "request_status_id"
+    t.index ["maintenance_type_id"], name: "index_maintenance_requests_on_maintenance_type_id"
+    t.index ["renter_id"], name: "index_maintenance_requests_on_renter_id"
+    t.index ["request_status_id"], name: "index_maintenance_requests_on_request_status_id"
   end
 
   create_table "maintenance_types", force: :cascade do |t|
@@ -45,6 +55,10 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
   create_table "renters", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
+    t.integer "apartment_id"
+    t.integer "room_id"
+    t.index ["apartment_id"], name: "index_renters_on_apartment_id"
+    t.index ["room_id"], name: "index_renters_on_room_id"
   end
 
   create_table "request_statuses", force: :cascade do |t|
@@ -54,6 +68,8 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
   create_table "rooms", force: :cascade do |t|
     t.string "number"
     t.boolean "availability"
+    t.integer "apartment_id"
+    t.index ["apartment_id"], name: "index_rooms_on_apartment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +79,8 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
     t.string "curr_addr"
     t.string "username"
     t.string "password"
+    t.integer "credit_card_id"
+    t.index ["credit_card_id"], name: "index_users_on_credit_card_id"
   end
 
 end
