@@ -1,25 +1,27 @@
 Given(/I am on the (.*) Page/) do |name|
     case name
     when "Home"
-        visit home_page_path
+        visit root_path
     when "Login"
-        visit login_path
+        visit user_session_path
     end
 end
 
 
 When(/I click on (.*)/) do |button_text|
-  click_button(button_text)
+  click_link(button_text)
 end
 
 When(/"(.*)" logs in/) do |email|
-  fill_in("username", :with => email)
+  fill_in("user_email", :with => email)
   
   case email
-  when "test@email.com"
-    fill_in("password", :with => 'password123')
+  when "1234@gmail.com"
+    fill_in("user_password", :with => 'password')
   when "admin@test.com"
-    fill_in("password", :with => "adminpassword")
+    fill_in("user_password", :with => "adminpassword")
+  when "InvalidUser@email.com"
+    fill_in("user_password", :with => "NotaPasswordForSure")
   end
 end
 
@@ -30,12 +32,14 @@ Then(/I should see "(.*)"/) do |text|
 end
 
 Then(/I should be on the (.*) Page/) do |name|
+  had_content = false
   case name
   when "Home"
-    page.has_content?("Something only on home page")
+    had_content = page.has_content?("Something only on home page")
   when "Login"
-    page.has_content?("Something only on login page")
+    had_content = page.has_css?("h2:contains('Log in')")
   when "Floor Plans"
-    page.has_content?("Something only on floor plans page")
+    had_content = page.has_content?("Something only on floor plans page")
   end
+  expect(had_content).to be true
 end

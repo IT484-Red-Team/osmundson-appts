@@ -4,7 +4,7 @@ Feature: User can view the floor plans to see what is available
     I want to be able to view the floor plans
 
 
-    Scenario: View Floor Plan page
+    Scenario: View Floor Plans page
         Given I am on the Home Page
         Then I should see "Floor Plans"
         When I click on "Floor Plans"
