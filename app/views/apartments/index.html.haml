@@ -1,14 +1,15 @@
-<h1>Apartments#index</h1>
-<p>Find me in app/views/apartments/index.html.erb</p>
+%h1 Apartments
+
 
 %h1 All Apartments
 
-%table#apartments
+%table#apartments{:class => 'table'}
     %thead
-        %th number
-        %th availability
-    %tbody
-        @apartments.each do |apartment|
         %tr
-            %td= apartment.number
-            %td= apartment.availability
+            %th number
+            %th availability
+    %tbody
+        - @apartments.each do |apartment|
+            %tr
+                %td= apartment.number
+                %td= apartment.availability

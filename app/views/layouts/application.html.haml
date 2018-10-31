@@ -9,15 +9,18 @@
 
 
   %body
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          %ul.nav.navbar-nav
+            %li=link_to "Home", root_path
+            %li=link_to "Apartments", apartments_index_path
+            %li=link_to "About Us", root_path  
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
-      %ul{:class => "nav"}
-        %li{:class => "nav-item"}=link_to "Home", root_path
-        %li{:class => "nav-item"}=link_to "Apartments", apartments_index_path
-        %li{:class => "nav-item"}=link_to "About Us", root_path
       = yield
       
       = render 'layouts/user_widget'
