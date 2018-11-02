@@ -38,6 +38,8 @@ Then(/I should be on the (.*) Page/) do |name|
     had_content = page.has_content?("Something only on home page")
   when "Login"
     had_content = page.has_css?("h2:contains('Log in')")
+  when "Sign Up"
+    had_content = find_button("Sign up").visible?
   when "Floor Plans"
     had_content = page.has_content?("Something only on floor plans page")
   end
