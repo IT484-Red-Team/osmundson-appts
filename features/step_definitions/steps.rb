@@ -1,10 +1,17 @@
 Given(/I am on the (.*) Page/) do |name|
-    case name
-    when "Home"
-        visit root_path
-    when "Login"
-        visit user_session_path
-    end
+  case name
+  when "Home"
+      visit root_path
+  when "Login"
+      visit user_session_path
+  end
+end
+
+Given("I am signed in") do
+  visit new_user_session_path
+  fill_in("user_email", :with => '1234@gmail.com')
+  fill_in("user_password", :with => 'password')
+  click_button('Log in')
 end
 
 
@@ -23,6 +30,8 @@ When(/"(.*)" logs in/) do |email|
   when "InvalidUser@email.com"
     fill_in("user_password", :with => "NotaPasswordForSure")
   end
+  
+  
 end
 
 
@@ -36,6 +45,8 @@ Then(/I should be on the (.*) Page/) do |name|
   case name
   when "Home"
     had_content = page.has_content?("Something only on home page")
+  when "Apply"
+    had_content = page.has_content?("Apply")
   when "Login"
     had_content = page.has_css?("h2:contains('Log in')")
   when "Sign Up"
