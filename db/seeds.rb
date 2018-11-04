@@ -12,15 +12,19 @@ more_owners.each do |owner|
     Owner.create!(owner)
 end
     
-more_buildings = [{:number => '1', :name => 'WG', :street_addr => '8300 31st St', :owner_id => 1}, {:number => 2, :name => 'V', :street_addr => '3055 Virginia', :owner_id => 2},
-                    {:number => '3', :name => 'V', :street_addr => '3063 Virginia', :owner_id => '1'}, {:number => '4', :name => 'HP',  :street_addr => '1436 Hampshire'}, 
-                    {:number => '5', :name => 'GI', :street_addr => '2641 Girard'}, {:number => '6', :name => 'MC', :street_addr => '2061 McKnight', :owner_id => 3}, 
-                    {:number => '7', :name => 'SK', :street_addr => '2209 Skillman', :owner_id => 4}, {:number => '8', :name => 'SKI', :street_addr => '2253 Skillman'}]
+more_buildings = [{:number => '1', :name => 'WG', :street_addr => '8300 31st St', :owner_id => 1}, 
+                    {:number => 2, :name => 'V', :street_addr => '3055 Virginia', :owner_id => 2},
+                    {:number => '3', :name => 'V', :street_addr => '3063 Virginia', :owner_id => '1'}, 
+                    {:number => '4', :name => 'HP',  :street_addr => '1436 Hampshire'}, 
+                    {:number => '5', :name => 'GI', :street_addr => '2641 Girard'}, 
+                    {:number => '6', :name => 'MC', :street_addr => '2061 McKnight', :owner_id => 3}, 
+                    {:number => '7', :name => 'SK', :street_addr => '2209 Skillman', :owner_id => 4}, 
+                    {:number => '8', :name => 'SKI', :street_addr => '2253 Skillman'}]
 more_buildings.each do |building|
     Building.create!(building)
 end
 
-more_apartments = [{:number => '1', :availability => true, :building_id => 1}, {:number => '2', :availability => false, :building_id => 1}]
+more_apartments = [{:number => '1', :availability => true, :building_id => 1}, {:number => '2', :availability => false, :building_id => 2}]
 more_apartments.each do |apartment|
     Apartment.create!(apartment)
 end

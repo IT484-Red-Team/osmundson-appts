@@ -4,6 +4,8 @@ Given(/I am on the (.*) Page/) do |name|
         visit root_path
     when "Login"
         visit user_session_path
+    when "Apartments"
+        visit "/apartments/index"
     end
 end
 

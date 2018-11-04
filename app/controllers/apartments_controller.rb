@@ -1,6 +1,7 @@
 class ApartmentsController < ApplicationController
   def index
     @apartments = Apartment.all
+    @buildings = Building.all
   end
   
   def add
