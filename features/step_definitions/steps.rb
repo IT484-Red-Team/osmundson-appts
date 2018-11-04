@@ -15,15 +15,15 @@ Given("I am signed in") do
 end
 
 
-When(/I click on (.*)/) do |button_text|
+When(/I click on \"(.*)\"/) do |button_text|
   click_link(button_text)
 end
 
-When(/"(.*)" logs in/) do |email|
+When(/\"(.*)\" logs in/) do |email|
   fill_in("user_email", :with => email)
   
   case email
-  when "1234@gmail.com"
+  when "1234@email.com"
     fill_in("user_password", :with => 'password')
   when "admin@test.com"
     fill_in("user_password", :with => "adminpassword")

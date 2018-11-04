@@ -5,5 +5,5 @@ Feature: A new user can sign up to create an account
     
     Scenario: User is directed to Sign Up page
         Given I am on the Login Page
-        When I click on Sign up
+        When I click on "Sign up"
         Then I should be on the Sign Up Page
