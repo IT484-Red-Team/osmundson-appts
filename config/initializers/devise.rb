@@ -287,4 +287,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  
+  config.omniauth :google_oauth2, '899547792617-agv4kdc7bql22lrst98klgakl9r67qqc.apps.googleusercontent.com','BFIJnqTwBeAxHcyon8RWWXdQ'
+  
 end
