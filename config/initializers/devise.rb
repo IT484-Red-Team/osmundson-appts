@@ -257,6 +257,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  
+  config.omniauth :google, ENV["GOOGLE_CONSUMER_KEY"],ENV["GOOGLE_CONSUMER_SECRET"]
+  
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -287,7 +290,5 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  
-  config.omniauth :google_oauth2, '899547792617-agv4kdc7bql22lrst98klgakl9r67qqc.apps.googleusercontent.com','BFIJnqTwBeAxHcyon8RWWXdQ'
   
 end
