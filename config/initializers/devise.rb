@@ -258,7 +258,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   
-  config.omniauth :google, ENV["GOOGLE_CONSUMER_KEY"],ENV["GOOGLE_CONSUMER_SECRET"]
+  config.omniauth :google_oauth2, ENV['CLIENT_ID'], ENV['CLIENT_SECRET']
   
 
   # ==> Warden configuration

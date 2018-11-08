@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_27_202351) do
+ActiveRecord::Schema.define(version: 2018_11_07_063208) do
 
   create_table "apartments", force: :cascade do |t|
     t.string "number"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "number"
-    t.string "name"
     t.string "street_addr"
     t.integer "owner_id"
     t.index ["owner_id"], name: "index_buildings_on_owner_id"
@@ -92,6 +91,8 @@ ActiveRecord::Schema.define(version: 2018_10_27_202351) do
     t.integer "credit_card_id"
     t.string "prev_addr"
     t.string "curr_addr"
+    t.string "provider"
+    t.string "uid"
     t.index ["credit_card_id"], name: "index_users_on_credit_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

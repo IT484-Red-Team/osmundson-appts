@@ -72,5 +72,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # OmniAuth Google 
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
-gem 'omniauth-google'
+# Access to the client ID and Secret 
+
+gem "figaro"
