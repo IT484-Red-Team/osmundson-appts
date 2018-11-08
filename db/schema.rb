@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_014324) do
+ActiveRecord::Schema.define(version: 2018_11_08_025150) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "rent_app_id"
@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 2018_11_08_014324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "credit_card_id"
-    t.string "prev_addr"
     t.string "curr_addr"
     t.index ["credit_card_id"], name: "index_users_on_credit_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
