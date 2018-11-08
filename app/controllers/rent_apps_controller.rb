@@ -5,12 +5,18 @@ class RentAppsController < ApplicationController
     # before the location can be stored.
     before_action :authenticate_user!
     
+    def rent_app_params
+        params.require(:rent_app).permit(:building_id, :num_bed, :num_bath, :ssn, :dr_license_num,
+                                        :license_state, :bank_name, :bank_acct_num, :res_phone,
+                                        :work_phone, :names_of_occpts, :pets)
+    end
+    
     def new
         # renders 'new' template
     end
     
     def create
-        @rent_app = RentApp.create!(rent_app_params)
+        @rent_app = RentApp.create!(rent_app_params, :user_id => current_user.id, :submitted_time => Time.now)
         flash[:notice] = "Application successfully submitted."
         redirect_to root_path
     end
