@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_224233) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "number"
+    t.string "name"
     t.string "street_addr"
     t.integer "owner_id"
     t.index ["owner_id"], name: "index_buildings_on_owner_id"
