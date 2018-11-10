@@ -5,7 +5,7 @@ Given(/I am on the (.*) Page/) do |name|
   when "Login"
       visit user_session_path
   when "Apartments"
-      visit "/apartments/index"
+      visit apartments_index_path
   end
 end
 
@@ -55,6 +55,8 @@ Then(/I should be on the (.*) Page/) do |name|
     had_content = find_button("Sign up").visible?
   when "Floor Plans"
     had_content = page.has_content?("Something only on floor plans page")
+  when "Apartments"
+    had_content = page.has_content?("WG")
   end
   expect(had_content).to be true
 end
