@@ -5,7 +5,7 @@ Feature: A logged in User or Admin is returned to Home Page
     
     Scenario: Valid user login is redirected to the Home Page
         Given I am on the Login Page
-        When "test@email.com" logs in
+        When "1234@email.com" logs in
         Then I should be on the Home Page
         
     Scenario: Invalid user login is met with error message
