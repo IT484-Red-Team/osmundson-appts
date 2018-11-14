@@ -1,17 +1,17 @@
 .container.text-center
     %h1 All Apartments
 
+
 - @buildings.each do |building|
-    %table.table
-        %thead
-            %tr
-                %th.buildingName= building.name
-        %tbody
-        - @apartments.where(building_id: building).each do |apartment|
-            %tr
-                %td.aptNum= apartment.number
-            %tr
-                %td.aptAvail= apartment.availability
-            %tr
-                %td.buildingStreetAddr= building.street_addr
+    .card
+        .card-body
+            %h5= building.name
+        /%tbody
+        /- @apartments.where(building_id: building).each do |apartment|
+        /    %tr
+        /        %td.aptNum= apartment.number
+        /    %tr
+        /        %td.aptAvail= apartment.availability
+        /    %tr
+        /        %td.buildingStreetAddr= building.street_addr
                 
