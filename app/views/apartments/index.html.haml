@@ -5,13 +5,13 @@
     %table
         %thead
             %tr
-                %th= building.name
+                %th.buildingName= building.name
         %tbody
         - @apartments.where(building_id: building).each do |apartment|
             %tr
-                %td= apartment.number
+                %td.aptNum= apartment.number
             %tr
-                %td= apartment.availability
+                %td.aptAvail= apartment.availability
             %tr
-                %td= building.street_addr
+                %td.buildingStreetAddr= building.street_addr
                 
