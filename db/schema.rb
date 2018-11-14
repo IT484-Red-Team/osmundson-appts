@@ -12,6 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2018_11_08_224233) do
 
+  create_table "addresses", force: :cascade do |t|
+    t.integer "rent_app_id"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "mngmt_phone"
+    t.boolean "is_current"
+    t.index ["rent_app_id"], name: "index_addresses_on_rent_app_id"
+  end
+
   create_table "apartments", force: :cascade do |t|
     t.string "number"
     t.boolean "availability"
@@ -34,6 +45,16 @@ ActiveRecord::Schema.define(version: 2018_11_08_224233) do
     t.integer "cvc_number"
   end
 
+  create_table "employers", force: :cascade do |t|
+    t.integer "rent_app_id"
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "phone_num"
+    t.string "income"
+    t.index ["rent_app_id"], name: "index_employers_on_rent_app_id"
+  end
+
   create_table "maintenance_requests", force: :cascade do |t|
     t.text "description"
     t.integer "maintenance_type_id"
@@ -51,6 +72,24 @@ ActiveRecord::Schema.define(version: 2018_11_08_224233) do
   create_table "owners", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
+  end
+
+  create_table "rent_apps", force: :cascade do |t|
+    t.integer "building_id"
+    t.integer "user_id"
+    t.integer "num_bed"
+    t.integer "num_bath"
+    t.string "ssn"
+    t.string "dr_license_num"
+    t.string "license_state"
+    t.string "bank_name"
+    t.string "bank_acct_num"
+    t.string "res_phone"
+    t.string "work_phone"
+    t.text "names_of_occpts"
+    t.string "pets"
+    t.datetime "submitted_time"
+    t.index ["user_id"], name: "index_rent_apps_on_user_id"
   end
 
   create_table "renters", force: :cascade do |t|
@@ -90,7 +129,6 @@ ActiveRecord::Schema.define(version: 2018_11_08_224233) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "credit_card_id"
-    t.string "prev_addr"
     t.string "curr_addr"
     t.string "provider"
     t.string "uid"
