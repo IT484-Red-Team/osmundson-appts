@@ -4,6 +4,9 @@ class ApartmentsController < ApplicationController
     @buildings = Building.all
   end
   
+  def create
+  end
+  
   def show
   end
   
@@ -15,8 +18,4 @@ class ApartmentsController < ApplicationController
   
   def update
   end
-  
-  def edit
-  end
-  
 end
