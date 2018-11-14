@@ -16,7 +16,10 @@ class RentAppsController < ApplicationController
     end
     
     def create
-        @rent_app = RentApp.create!(rent_app_params, :user_id => current_user.id, :submitted_time => Time.now)
+        @rent_app = RentApp.create!(rent_app_params)
+        @rent_app.user_id = current_user.id
+        @rent_app.submitted_time = Time.now
+        @rent_app.save
         flash[:notice] = "Application successfully submitted."
         redirect_to root_path
     end
