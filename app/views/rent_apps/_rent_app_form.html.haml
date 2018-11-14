@@ -2,4 +2,5 @@
 -# new rent app form and the edit rent app form.
 
 = label :rent_app, :building_id, 'Building:'
-= collection_select :rent_app, :building_id, Building.all, :id, :street_addr
+%div.form-control
+    = collection_select :rent_app, :building_id, Building.all, :id, :street_addr
