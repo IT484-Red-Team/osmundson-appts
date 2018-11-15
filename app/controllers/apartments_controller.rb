@@ -4,6 +4,15 @@ class ApartmentsController < ApplicationController
     @buildings = Building.all
   end
   
+  def create
+  end
+  
+  def show
+    id = params[:id]
+    @building = Building.find(id)
+    @apartments = Apartment.all.where(building_id: id)
+  end
+  
   def add
   end
   
@@ -12,8 +21,4 @@ class ApartmentsController < ApplicationController
   
   def update
   end
-  
-  def edit
-  end
-  
 end

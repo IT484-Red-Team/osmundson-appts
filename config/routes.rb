@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   get 'apartments/index'
   resource :apartments
   resource :rent_app

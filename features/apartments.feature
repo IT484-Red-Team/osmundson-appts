@@ -2,15 +2,12 @@ Feature: A signed in user is able to view buildings and their apartments
     As a user
     So that I can view buildings and apartments
     I want to view the buildings and apartments on the apartments page
-
-    Scenario: View Apartments page
-      Given I am on the Apartments Page
-      Then I should be on the Apartments Page
     
-    Scenario: View Buildings on Apartments page
+    Scenario: View Buildings on Apartments Page
         Given I am on the Apartments Page
         Then I should see "WG"
     
-    Scenario: View Apartments on Apartments page
-        Given I am on the Apartments Page
+    Scenario: View Apartments on Apartments Page
+        Given I am running tests
+        When I am on the Apartments Page
         Then I should see "1"
