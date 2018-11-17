@@ -5,17 +5,15 @@ class ApartmentsController < ApplicationController
   end
   
   def create
+    
   end
   
   def show
   end
   
-  def add
+  def update
   end
   
   def delete
-  end
-  
-  def update
   end
 end

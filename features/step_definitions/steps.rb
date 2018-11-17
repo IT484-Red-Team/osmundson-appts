@@ -10,7 +10,7 @@ Given("I am signed in") do
   click_button('Log in')
 end
 
-When(/I am on the (.*) Page/) do |name|
+Given(/I am on the (.*) Page/) do |name|
   case name
   when "Home"
       visit root_path
@@ -18,6 +18,8 @@ When(/I am on the (.*) Page/) do |name|
       visit new_user_session_path
   when "Apartments"
       visit apartments_index_path
+  when "New Apartments"
+    visit apartments_new_path
   end
 end
 
@@ -32,10 +34,15 @@ When(/\"(.*)\" logs in/) do |email|
   case email
   when "1234@email.com"
     fill_in("user_password", :with => 'password')
-  when "admin@test.com"
-    fill_in("user_password", :with => "adminpassword")
   when "InvalidUser@email.com"
     fill_in("user_password", :with => "NotaPasswordForSure")
+  end
+end
+
+When(/^I fill in "(.*)" with "(.*)"$/) do |field, value|
+  case field
+  when "number"
+    fill_in("number", :with => value)
   end
 end
 
