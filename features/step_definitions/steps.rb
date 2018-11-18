@@ -24,10 +24,10 @@ Given(/I am on the (.*) Page/) do |name|
 end
 
 When(/^I click on "(.*)"$/) do |button_text|
-  click_link(button_text)
+  click_on(button_text)
 end
 
-# This test is not working properly for valid logins
+# This step is not working properly for valid logins
 When(/\"(.*)\" logs in/) do |email|
   fill_in("user_email", :with => email)
   
@@ -44,6 +44,10 @@ When(/^I fill in "(.*)" with "(.*)"$/) do |field, value|
   when "number"
     fill_in("number", :with => value)
   end
+end
+
+When(/^I check on "(.*)"$/) do |checkbox|
+  check(checkbox)
 end
 
 Then(/^I should see "(.*)"$/) do |content|
@@ -64,4 +68,8 @@ Then(/^I should be on the (.*) Page$/) do |page_name|
     had_content = page.has_content?("Sign up")
   end
   expect(had_content).to be true
+end
+
+Then(/^"(.*)" should be checked$/) do |checked_box|
+  expect(page.has_checked_field?(checked_box)).to be true
 end
