@@ -12,3 +12,28 @@
 %br
 = label :rent_app, :ssn, 'Social Security Number:'
 = text_field :rent_app, :ssn
+%br
+= label :rent_app, :dr_license_num, 'Driver License Number:'
+= text_field :rent_app, :dr_license_num
+%br
+= label :rent_app, :license_state, 'Driver License State:'
+= select :rent_app, :license_state, options_for_select(state_abbrs)
+%br
+= label :rent_app, :bank_name, 'Bank Name:'
+= text_field :rent_app, :bank_name
+%br
+= label :rent_app, :bank_acct_num, 'Bank Account Number:'
+= text_field :rent_app, :bank_acct_num
+%br
+= label :rent_app, :res_phone, 'Phone Number:'
+= text_field :rent_app, :res_phone
+%br
+= label :rent_app, :work_phone, 'Work Phone Number:'
+= text_field :rent_app, :work_phone
+%br
+= label :rent_app, :names_of_occpts, 'Names of other Occupants:'
+= text_field :rent_app, :names_of_occpts
+%br
+= label :rent_app, :pets, 'Pets (Type and Number):'
+= text_field :rent_app, :pets
+%br
