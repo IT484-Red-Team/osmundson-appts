@@ -10,7 +10,7 @@ Given("I am signed in") do
   click_button('Log in')
 end
 
-When(/I am on the (.*) Page/) do |name|
+Given(/I am on the (.*) Page/) do |name|
   case name
   when "Home"
       visit root_path
@@ -18,25 +18,36 @@ When(/I am on the (.*) Page/) do |name|
       visit new_user_session_path
   when "Apartments"
       visit apartments_index_path
+  when "New Apartments"
+    visit apartments_new_path
   end
 end
 
 When(/^I click on "(.*)"$/) do |button_text|
-  click_link(button_text)
+  click_on(button_text)
 end
 
-# This test is not working properly for valid logins
+# This step is not working properly for valid logins
 When(/\"(.*)\" logs in/) do |email|
   fill_in("user_email", :with => email)
   
   case email
   when "1234@email.com"
     fill_in("user_password", :with => 'password')
-  when "admin@test.com"
-    fill_in("user_password", :with => "adminpassword")
   when "InvalidUser@email.com"
     fill_in("user_password", :with => "NotaPasswordForSure")
   end
+end
+
+When(/^I fill in "(.*)" with "(.*)"$/) do |field, value|
+  case field
+  when "number"
+    fill_in("number", :with => value)
+  end
+end
+
+When(/^I check on "(.*)"$/) do |checkbox|
+  check(checkbox)
 end
 
 Then(/^I should see "(.*)"$/) do |content|
@@ -57,4 +68,8 @@ Then(/^I should be on the (.*) Page$/) do |page_name|
     had_content = page.has_content?("Sign up")
   end
   expect(had_content).to be true
+end
+
+Then(/^"(.*)" should be checked$/) do |checked_box|
+  expect(page.has_checked_field?(checked_box)).to be true
 end

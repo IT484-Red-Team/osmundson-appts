@@ -1,7 +1,0 @@
-.container.text-center
-    %h1 Create Apartment
-    
-    = form_tag apartments_path, :method => :post do
-        = text_field_tag "number", ""
-        = check_box_tag "availability"
-        = submit_tag "Submit"

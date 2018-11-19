@@ -17,9 +17,18 @@
             %li=link_to "Apply", new_rent_app_path
             %li=link_to "Apartments", apartments_index_path
             %li=link_to "About Us", root_path  
-            %li=link_to "Create Account", new_user_registration_path
-            %li=link_to "Login", new_user_session_path
-            
+
+            - if current_user
+              %li=link_to "Sign Out", destroy_user_session_path, method: :delete 
+              %li=link_to "Edit Account", edit_user_registration_path
+            - else
+              %li=link_to "Create Account", new_user_registration_path
+              %li=link_to "Login", new_user_session_path
+         
+            - if user_signed_in?
+              Logged in as
+              = succeed "." do
+                %strong= current_user.email     
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
@@ -28,8 +37,3 @@
       = yield
       
       = render 'layouts/user_widget'
-
-      
-      
-  
-
