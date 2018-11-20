@@ -2,13 +2,13 @@
 -# new rent app form and the edit rent app form.
 
 = label :rent_app, :building_id, 'Building:'
-= collection_select :rent_app, :building_id, Building.all, :id, :street_addr
+= collection_select :rent_app, :building_id, Building.all, :id, :street_addr, prompt: true
 %br
 = label :rent_app, :num_bed, 'Number of Bedrooms:'
-= select :rent_app, :num_bed, ['', 1, 2, 3, 4]
+= select :rent_app, :num_bed, [1, 2, 3, 4], prompt: true
 %br
 = label :rent_app, :num_bath, 'Number of Bathrooms:'
-= select :rent_app, :num_bath, ['', 1, 2, 3, 4]
+= select :rent_app, :num_bath, [1, 2, 3, 4], prompt: true
 %br
 = label :rent_app, :ssn, 'Social Security Number:'
 = text_field :rent_app, :ssn

@@ -1,7 +1,7 @@
-Feature: Applying for renting an apartment
+Feature: Getting directed to the Rental Application Page
     As a renter
-    So that I can apply to live in an apartment
-    I want to submit a completed application (via forms) to the property manager
+    So that I can have the ability to submit an application
+    I want to be directed to the application page
         
     Scenario: Signed in User is directed to Apply Page
         Given I am signed in
