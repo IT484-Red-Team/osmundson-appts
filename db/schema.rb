@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_224233) do
+ActiveRecord::Schema.define(version: 2018_11_27_063048) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "rent_app_id"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_224233) do
     t.string "curr_addr"
     t.string "provider"
     t.string "uid"
+    t.boolean "admin", default: false
     t.index ["credit_card_id"], name: "index_users_on_credit_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

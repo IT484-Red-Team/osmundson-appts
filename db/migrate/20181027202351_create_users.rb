@@ -2,12 +2,13 @@ class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       
-      #username
-      t.string  :fname
-      t.string  :lname
-      t.integer :phonenumber
+      # #username
+      # t.string  :fname
+      # t.string  :lname
+      # t.integer :phonenumber
       
       ## Database authenticatable
+      t.boolean :admin
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
