@@ -8,7 +8,7 @@
                 .panel.panel-primary{:style => "width: 18rem;"}
                     .panel-body
                         %h5= building.name
-                        = link_to 'Show Apartments', apartments_path(building)
+                        = link_to 'Show Apartments', apartments_path(building.id)
         /%tbody
         /- @apartments.where(building_id: building).each do |apartment|
         /    %tr

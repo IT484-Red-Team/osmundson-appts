@@ -10,7 +10,7 @@ class ApartmentsController < ApplicationController
   def show
     id = params[:id]
     @building = Building.find(id)
-    @apartments = Apartment.all.where(building_id: id)
+    @apartments = Apartment.where(building_id: id)
   end
   
   def add
