@@ -16,8 +16,10 @@ Given(/I am on the (.*) Page/) do |name|
       visit root_path
   when "Login"
       visit new_user_session_path
+  when "Buildings"
+      visit buildings_path
   when "Apartments"
-      visit apartments_index_path
+      visit apartment_path(id: 1)
   when "New Apartments"
     visit apartments_new_path
   end

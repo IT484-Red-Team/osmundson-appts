@@ -1,0 +1,12 @@
+.container.text-center
+    %h1 Buildings
+
+.container
+    .row
+        - @buildings.each do |building|
+            .col-md-4
+                .panel.panel-primary{:style => "width: 18rem;"}
+                    .panel-body
+                        %h5= building.name
+                        %p= building.street_addr
+                        = link_to 'Show Apartments', apartment_path(building)
