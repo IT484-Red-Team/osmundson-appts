@@ -1,8 +1,4 @@
 class ApartmentsController < ApplicationController
-  def index
-    @apartments = Apartment.all
-    @buildings = Building.all
-  end
   
   def create
     building_name = params[:select_building]
@@ -26,8 +22,8 @@ class ApartmentsController < ApplicationController
   
   def show
     id = params[:id]
-    @building = Building.find(id)
-    @apartments = Apartment.all.where(building_id: id)
+    @building = Building.where(id: id)
+    @apartments = Apartment.where(building_id: id)
   end
   
   def update

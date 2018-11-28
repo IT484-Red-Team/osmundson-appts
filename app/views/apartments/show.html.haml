@@ -1,0 +1,16 @@
+.container.text-center
+    - @building.each do |building|
+        %h1= "Apartments for #{building.name}"
+    
+%table.table
+    %thead
+        %tr
+            %td 
+                %strong Number
+            %td
+                %strong Available?
+    %tbody
+    - @apartments.each do |apartment|
+        %tr
+            %td= apartment.number
+            %td= apartment.availability
