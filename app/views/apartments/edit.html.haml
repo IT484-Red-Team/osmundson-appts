@@ -1,0 +1,19 @@
+.container.text-center
+    %h1 Edit Apartment
+%div.container.text-center    
+    = form_tag apartments_update_path, :method => :put do
+        %div.form-control
+            // %span Building: &nbsp; 
+            - @building.each do |building|
+                %span{:id => "building_name", :value => building.name}
+                = building.name
+            // %input{:type => "text", :id => "building_name", :name => "building_name", :value => @building_name, :readonly => "readonly"}
+            // %span Apartment: &nbsp;
+            - @apartment.each do |apartment|
+                %span{:id => "apartment_number", :value => apartment.number}
+                = apartment.number
+            /%input{:type => "text", :id => "apartment_number", :name => "apartment_number", :value => @apartment_number, :readonly => "readonly"}
+            %span Rooms Available:
+            = check_box_tag "availability", @availability_value, :checked => @availability_checked
+        %div
+            = submit_tag "Update"
