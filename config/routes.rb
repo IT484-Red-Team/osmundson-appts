@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   resources :rent_apps
   resources :buildings
   resources :about
-  get 'apartments/new'
-  post 'apartments/create'
+  get 'apartments/index'
   get 'rent_app/new'
   get 'about/index'
 
