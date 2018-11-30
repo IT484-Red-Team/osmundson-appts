@@ -64,7 +64,7 @@ more_creditCards.each do |creditCard|
     CreditCard.create!(creditCard)
 end
 
-more_users = [{:credit_card_id => 1 , :fname => 'jane', :lname => 'doe', :email => '1234@email.com', :encrypted_password => '#$taawktljasktlw4aaglj', :password => 'password', reset_password_token: 'token', reset_password_sent_at: nil, remember_created_at: "2018-12-31 22:27:09", sign_in_count: 1, current_sign_in_at: "2018-12-31 22:27:09", last_sign_in_at: "2018-12-31 22:27:09", current_sign_in_ip: "0.0.0.0", last_sign_in_ip: "0.0.0.0"}]
+more_users = [{:credit_card_id => 1, :admin => true, :email => '1234@email.com', :encrypted_password => '#$taawktljasktlw4aaglj', :password => 'password', reset_password_token: 'token', reset_password_sent_at: nil, remember_created_at: "2018-12-31 22:27:09", sign_in_count: 1, current_sign_in_at: "2018-12-31 22:27:09", last_sign_in_at: "2018-12-31 22:27:09", current_sign_in_ip: "0.0.0.0", last_sign_in_ip: "0.0.0.0"}]
 more_users.each do |user|
     User.create!(user)
 end
