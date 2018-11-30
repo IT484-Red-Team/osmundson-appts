@@ -78,3 +78,5 @@ gem 'omniauth-google-oauth2'
 # Access to the client ID and Secret 
 
 gem "figaro"
+
+gem 'rails_admin'
