@@ -5,19 +5,20 @@ end
 
 Given("I am signed in") do
   visit new_user_session_path
-  fill_in("user_email", :with => '1234@gmail.com')
-  fill_in("user_password", :with => 'password')
+  u = FactoryBot.create(:minimal_user)
+  fill_in("user_email", :with => u.email)
+  fill_in("user_password", :with => u.password)
   click_button('Log in')
 end
 
 Given(/I am on the (.*) Page/) do |name|
   case name
   when "Home"
-      visit root_path
+    visit root_path
   when "Login"
-      visit new_user_session_path
+    visit new_user_session_path
   when "Apartments"
-      visit apartments_index_path
+    visit apartments_index_path
   when "New Apartments"
     visit apartments_new_path
   end
@@ -27,16 +28,18 @@ When(/^I click on "(.*)"$/) do |button_text|
   click_on(button_text)
 end
 
-# This step is not working properly for valid logins
-When(/\"(.*)\" logs in/) do |email|
-  fill_in("user_email", :with => email)
+When("I log in") do
+  u = FactoryBot.create(:minimal_user)
+  fill_in("Email", :with => u.email)
+  fill_in("Password", :with => u.password)
   
-  case email
-  when "1234@email.com"
-    fill_in("user_password", :with => 'password')
-  when "InvalidUser@email.com"
-    fill_in("user_password", :with => "NotaPasswordForSure")
-  end
+  click_button('Log in')
+end
+
+When("An invalid user logs in") do
+  fill_in("Email", :with => "NotAuser@email.com")
+  fill_in("Password", :with => "Thisisnotapasswordatall")
+  click_button('Log in')
 end
 
 When(/^I fill in "(.*)" with "(.*)"$/) do |field, value|
@@ -59,7 +62,7 @@ Then(/^I should be on the (.*) Page$/) do |page_name|
   had_content = false
   case page_name
   when "Home"
-    had_content = page.has_content?("Welcome")
+    had_content = page.has_css?("h1:contains('Welcome')")
   when "Apply"
     had_content = page.has_content?("Apply")
   when "Login"
