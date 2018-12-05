@@ -1,14 +1,11 @@
+# === GIVEN ===
 Given (/I am running tests/) do
     bool = true
     expect(bool).to be true
 end
 
 Given("I am signed in") do
-  visit new_user_session_path
-  u = FactoryBot.create(:minimal_user)
-  fill_in("user_email", :with => u.email)
-  fill_in("user_password", :with => u.password)
-  click_button('Log in')
+  sign_in
 end
 
 Given(/I am on the (.*) Page/) do |name|
@@ -58,6 +55,7 @@ Then(/^I should see "(.*)"$/) do |content|
     expect(has_text).to be true
 end
 
+# === THEN ===
 Then(/^I should be on the (.*) Page$/) do |page_name|
   had_content = false
   case page_name
@@ -75,4 +73,14 @@ end
 
 Then(/^"(.*)" should be checked$/) do |checked_box|
   expect(page.has_checked_field?(checked_box)).to be true
+end
+
+
+# === FUNCTIONS ===
+def sign_in
+  visit new_user_session_path
+  u = FactoryBot.create(:minimal_user)
+  fill_in("user_email", :with => u.email)
+  fill_in("user_password", :with => u.password)
+  click_button('Log in')
 end
