@@ -34,11 +34,6 @@ more_rooms.each do |room|
     Room.create!(room)
 end
 
-more_renters = [{:fname => 'jane', :lname => 'doe', :apartment_id => 1, :room_id => 1}]
-more_renters.each do |renter|
-    Renter.create!(renter)
-end
-
 more_maintenanceTypes = [{:description => 'Front Door'}]
 more_maintenanceTypes.each do |maintenanceType|
     MaintenanceType.create!(maintenanceType)
