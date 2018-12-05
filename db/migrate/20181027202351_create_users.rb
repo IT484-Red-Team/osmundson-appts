@@ -42,6 +42,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       
       t.integer 'credit_card_id'
       t.references :credit_card, foreign_key: true
+      t.references :apartment, foreign_key: true
       t.string 'prev_addr'
       t.string 'curr_addr'
     end

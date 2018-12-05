@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 2018_11_08_025150) do
   create_table "maintenance_requests", force: :cascade do |t|
     t.text "description"
     t.integer "maintenance_type_id"
-    t.integer "renter_id"
+    t.integer "user_id"
     t.integer "request_status_id"
     t.index ["maintenance_type_id"], name: "index_maintenance_requests_on_maintenance_type_id"
-    t.index ["renter_id"], name: "index_maintenance_requests_on_renter_id"
     t.index ["request_status_id"], name: "index_maintenance_requests_on_request_status_id"
+    t.index ["user_id"], name: "index_maintenance_requests_on_user_id"
   end
 
   create_table "maintenance_types", force: :cascade do |t|
@@ -92,15 +92,6 @@ ActiveRecord::Schema.define(version: 2018_11_08_025150) do
     t.index ["user_id"], name: "index_rent_apps_on_user_id"
   end
 
-  create_table "renters", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.integer "apartment_id"
-    t.integer "room_id"
-    t.index ["apartment_id"], name: "index_renters_on_apartment_id"
-    t.index ["room_id"], name: "index_renters_on_room_id"
-  end
-
   create_table "request_statuses", force: :cascade do |t|
     t.text "description"
   end
@@ -127,9 +118,11 @@ ActiveRecord::Schema.define(version: 2018_11_08_025150) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "credit_card_id"
+    t.integer "apartment_id"
     t.string "curr_addr"
     t.string "provider"
     t.string "uid"
+    t.index ["apartment_id"], name: "index_users_on_apartment_id"
     t.index ["credit_card_id"], name: "index_users_on_credit_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
