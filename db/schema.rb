@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_025150) do
     t.date "date"
     t.string "name"
     t.integer "cvc_number"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
   create_table "employers", force: :cascade do |t|

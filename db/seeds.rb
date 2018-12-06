@@ -39,15 +39,11 @@ more_requestStatuses.each do |requestStatus|
     RequestStatus.create!(requestStatus)
 end
 
-more_creditCards = [{:number => 0000000000000000, :date => 0101, :name => 'jane z doe', :cvc_number => 000}]
-more_creditCards.each do |creditCard|
-    CreditCard.create!(creditCard)
-end
-
 more_users = [{:credit_card_id => 1, :admin => true, :email => '1234@email.com', :encrypted_password => '#$taawktljasktlw4aaglj', :password => 'password', reset_password_token: 'token', reset_password_sent_at: nil, remember_created_at: "2018-12-31 22:27:09", sign_in_count: 1, current_sign_in_at: "2018-12-31 22:27:09", last_sign_in_at: "2018-12-31 22:27:09", current_sign_in_ip: "0.0.0.0", last_sign_in_ip: "0.0.0.0"}]
 more_users.each do |user|
     u = User.create!(user)
     if u.persisted?
         u.maintenance_request.create!(:request_status_id => 1 , :maintenance_type => MaintenanceType.first, :description => 'Lorem ipsum dolor sit amet')
+        u.create_credit_card(:number => 0000000000000000, :date => Time.now, :name => 'jane z doe', :cvc_number => 000)
     end
 end
