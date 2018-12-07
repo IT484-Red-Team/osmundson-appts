@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_025150) do
     t.text "names_of_occpts"
     t.string "pets"
     t.datetime "submitted_time"
+    t.index ["building_id"], name: "index_rent_apps_on_building_id"
     t.index ["user_id"], name: "index_rent_apps_on_user_id"
   end
 
