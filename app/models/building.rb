@@ -1,5 +1,6 @@
 class Building < ActiveRecord::Base
     has_many :apartment, :dependent => :destroy
+    has_many :rent_app
     belongs_to :owner, optional: true
     
     def self.all_street_addrs

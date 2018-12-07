@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     has_one :credit_card, required: false
     has_many :maintenance_request
+    has_many :rent_app
     has_one :apartment
     devise :database_authenticatable, :registerable,  
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable,  omniauth_providers: [:google_oauth2]
