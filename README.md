@@ -14,5 +14,5 @@ Ruby on Rails web page for Osmundson Apartments
 4. You are now set up to run the app. To start the app, run the following command:
    * `rails server -p $PORT -b $IP`
 5. A pop-up should appear giving you the link to your webpage that is now running on your Cloud9 instance.
-  The link should be in the form of: https://ide.c9.io/{your username}/{name of your workspace}
+  The link should be in the form of: https://ide.c9.io/{your_username}/{name_of_your_workspace}
 6. Also, you maybe me met with a page that has a button that says 'Go to my app' or something of the sorts. If that appears, just click that button and you will be led to the actual webpage.
