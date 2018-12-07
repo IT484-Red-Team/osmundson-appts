@@ -1,7 +1,7 @@
 class CreateRentApps < ActiveRecord::Migration[5.2]
   def change
     create_table :rent_apps do |t|
-      t.integer :building_id
+      t.references :building, foreign_key: true
       t.references :user, foreign_key: true
       t.integer :num_bed
       t.integer :num_bath

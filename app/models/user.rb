@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-    belongs_to :credit_card, optional: true
+    has_one :credit_card, required: false
+    has_many :maintenance_request
+    has_many :rent_app
+    has_one :apartment
     devise :database_authenticatable, :registerable,  
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable,  omniauth_providers: [:google_oauth2]
     def self.find_for_open_id(access_token, signed_in_resource=nil)

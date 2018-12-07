@@ -1,5 +1,4 @@
 class Apartment < ActiveRecord::Base
-    has_one :renter
-    has_many :room, :dependent => :destroy
+    has_one :user
     belongs_to :building
 end
