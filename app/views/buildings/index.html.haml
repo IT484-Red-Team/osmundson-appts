@@ -3,11 +3,11 @@
 
 .container
     .row
-        - @buildings.each_slice do |building|
+        - @buildings.each do |building|
             .col-md-4
                 .panel.panel-primary{:style => "width: 18rem;"}
                     .panel-body
-                        %img.img-responsive{:src => "apartment1.jpg"}
+                        =image_tag "#{building.name}.jpg", :class => "img-responsive"
                         %h5= building.name
                         %p= building.street_addr
                         = link_to 'Show Apartments', apartment_path(building)
