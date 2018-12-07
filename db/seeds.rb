@@ -24,7 +24,10 @@ more_buildings.each do |building|
     Building.create!(building)
 end
 
-more_apartments = [{:number => '1', :availability => true, :building_id => 1}, {:number => '2', :availability => false, :building_id => 2}]
+more_apartments = [{:number => '1', :availability => true, :building_id => 1}, {:number => '2', :availability => false, :building_id => 2},
+                    {:number => '3', :availability => true, :building_id => 3}, {:number => '1', :availability => false, :building_id => 4},
+                    {:number => '1', :availability => true, :building_id => 5}, {:number => '2', :availability => false, :building_id => 6},
+                    {:number => '2', :availability => true, :building_id => 7}, {:number => '1', :availability => false, :building_id => 8}]
 more_apartments.each do |apartment|
     Apartment.create!(apartment)
 end
